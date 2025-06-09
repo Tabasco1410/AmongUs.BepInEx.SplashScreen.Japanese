@@ -32,6 +32,8 @@ namespace BepInEx.SplashScreen
 #endif
                 var consoleNotAllowed = config.Bind("General", "OnlyNoConsole", onlyNoConsoleDefault, "Only display the splash screen if the logging console is turned off.").Value;
 
+                var renameConf = config.Bind("General", "RenameExe", true, "Automatically rename the splash .exe file to GameName.SplashScreen.GUI.dll to prevent Discord from mistaking the game as a different game.");
+
                 if (!isEnabled)
                 {
                     Logger.LogDebug("Not showing splash because the Enabled setting is off");
@@ -49,7 +51,6 @@ namespace BepInEx.SplashScreen
 
                 var currentProcess = Process.GetCurrentProcess();
 
-                var renameConf = config.Bind("General", "RenameExe", true, "Automatically rename the splash .exe file to GameName.SplashScreen.GUI.dll to prevent Discord from mistaking the game as a different game.");
                 var exeNameProc = currentProcess.ProcessName + ".SplashScreen.GUI.exe";
                 var exeNameOrig = "BepInEx.SplashScreen.GUI.exe";
 
