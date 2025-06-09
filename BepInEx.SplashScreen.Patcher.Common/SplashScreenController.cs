@@ -18,19 +18,19 @@ namespace BepInEx.SplashScreen
         private static LoadingLogListener _logListener;
         private static Process _guiProcess;
 
-        public static void SpawnSplash(ConfigFile config)
+        public static void SpawnSplash(ConfigFile config, ConfigFile coreConfig)
         {
             try
             {
                 if (config == null) throw new ArgumentNullException(nameof(config));
 
-                var isEnabled = config.Bind("SplashScreen", "Enabled", true, "Display a splash screen with information about game load progress on game start-up.").Value;
+                var isEnabled = config.Bind("General", "Enabled", true, "Display a splash screen with information about game load progress on game start-up.").Value;
 #if DEBUG
                 const bool onlyNoConsoleDefault = false;
 #else
                 const bool onlyNoConsoleDefault = true;
 #endif
-                var consoleNotAllowed = config.Bind("SplashScreen", "OnlyNoConsole", onlyNoConsoleDefault, "Only display the splash screen if the logging console is turned off.").Value;
+                var consoleNotAllowed = config.Bind("General", "OnlyNoConsole", onlyNoConsoleDefault, "Only display the splash screen if the logging console is turned off.").Value;
 
                 if (!isEnabled)
                 {
@@ -40,7 +40,7 @@ namespace BepInEx.SplashScreen
 
                 if (consoleNotAllowed)
                 {
-                    if (config.TryGetEntry("Logging.Console", "Enabled", out ConfigEntry<bool> entry) && entry.Value)
+                    if (coreConfig.TryGetEntry("Logging.Console", "Enabled", out ConfigEntry<bool> entry) && entry.Value)
                     {
                         Logger.LogDebug("Not showing splash because the console is enabled");
                         return;
@@ -49,7 +49,7 @@ namespace BepInEx.SplashScreen
 
                 var currentProcess = Process.GetCurrentProcess();
 
-                var renameConf = config.Bind("SplashScreen", "RenameExe", true, "Automatically rename the splash .exe file to GameName.SplashScreen.GUI.dll to prevent Discord from mistaking the game as a different game.");
+                var renameConf = config.Bind("General", "RenameExe", true, "Automatically rename the splash .exe file to GameName.SplashScreen.GUI.dll to prevent Discord from mistaking the game as a different game.");
                 var exeNameProc = currentProcess.ProcessName + ".SplashScreen.GUI.exe";
                 var exeNameOrig = "BepInEx.SplashScreen.GUI.exe";
 

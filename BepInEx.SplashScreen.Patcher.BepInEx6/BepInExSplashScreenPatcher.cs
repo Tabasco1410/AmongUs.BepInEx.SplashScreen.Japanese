@@ -28,7 +28,7 @@ namespace BepInEx.SplashScreen
             // Only allow to run once
             if (Interlocked.Exchange(ref _initialized, 1) == 1) return;
 
-            SplashScreenController.SpawnSplash(Config);
+            SplashScreenController.SpawnSplash(Config, ConfigFile.CoreConfig);
         }
     }
 }
