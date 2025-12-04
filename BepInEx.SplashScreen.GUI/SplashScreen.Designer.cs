@@ -1,5 +1,4 @@
-﻿
-namespace BepInEx.SplashScreen
+﻿namespace BepInEx.SplashScreen
 {
     partial class SplashScreen
     {
@@ -46,7 +45,7 @@ namespace BepInEx.SplashScreen
             // 
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBar1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.progressBar1.Location = new System.Drawing.Point(8, 401);
+            this.progressBar1.Location = new System.Drawing.Point(8, 387);
             this.progressBar1.MarqueeAnimationSpeed = 0;
             this.progressBar1.Maximum = 5;
             this.progressBar1.Name = "progressBar1";
@@ -70,12 +69,12 @@ namespace BepInEx.SplashScreen
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(8, 444);
+            this.button1.Location = new System.Drawing.Point(8, 430);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(282, 34);
             this.button1.TabIndex = 4;
             this.button1.TabStop = false;
-            this.button1.Text = "Open game folder";
+            this.button1.Text = "Among Usフォルダを開く";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -86,38 +85,39 @@ namespace BepInEx.SplashScreen
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
-            "Initialize environment and BepInEx",
-            "Load and apply patchers",
-            "Load and apply plugins",
-            "Start the game"});
+            "環境と BepInEx の初期化",
+            "patcerフォルダ内の.dllの読み込みと適用",
+            "pluginsフォルダ内の.dllの読み込みと適用",//任意のMod名に変更可能
+            "Among Usを起動する"});//任意のMod名に変更可能
             this.checkedListBox1.Location = new System.Drawing.Point(8, 276);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBox1.Size = new System.Drawing.Size(282, 60);
+            this.checkedListBox1.Size = new System.Drawing.Size(282, 46);
             this.checkedListBox1.TabIndex = 0;
             this.checkedListBox1.TabStop = false;
             this.checkedListBox1.ThreeDCheckBoxes = true;
             this.checkedListBox1.UseTabStops = false;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // labelTop
             // 
             this.labelTop.AutoEllipsis = true;
             this.labelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelTop.Location = new System.Drawing.Point(8, 348);
+            this.labelTop.Location = new System.Drawing.Point(8, 334);
             this.labelTop.Name = "labelTop";
             this.labelTop.Size = new System.Drawing.Size(282, 20);
             this.labelTop.TabIndex = 1;
-            this.labelTop.Text = "BepInEx is initializing...";
+            this.labelTop.Text = "BepInEx を初期化しています...";
             // 
             // labelBot
             // 
             this.labelBot.AutoEllipsis = true;
             this.labelBot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelBot.Location = new System.Drawing.Point(8, 368);
+            this.labelBot.Location = new System.Drawing.Point(8, 354);
             this.labelBot.Name = "labelBot";
             this.labelBot.Size = new System.Drawing.Size(282, 33);
             this.labelBot.TabIndex = 2;
-            this.labelBot.Text = "The environment is being set up";
+            this.labelBot.Text = "環境を設定中です";
             // 
             // panel1
             // 
@@ -130,7 +130,7 @@ namespace BepInEx.SplashScreen
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(8, 336);
+            this.panel2.Location = new System.Drawing.Point(8, 322);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(282, 12);
             this.panel2.TabIndex = 7;
@@ -138,14 +138,14 @@ namespace BepInEx.SplashScreen
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(8, 432);
+            this.panel5.Location = new System.Drawing.Point(8, 418);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(282, 12);
             this.panel5.TabIndex = 10;
             // 
             // SplashScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -168,10 +168,11 @@ namespace BepInEx.SplashScreen
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 100);
             this.Name = "SplashScreen";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "The game is loading...";
+            this.Text = "Among Usを読み込んでいます...";//任意のMod名に変更可能
+            this.Load += new System.EventHandler(this.SplashScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

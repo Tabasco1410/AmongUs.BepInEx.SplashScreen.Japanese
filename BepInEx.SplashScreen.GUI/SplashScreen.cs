@@ -8,7 +8,7 @@ namespace BepInEx.SplashScreen
     public partial class SplashScreen : Form
     {
         private const string WorkingStr = "...";
-        private const string DoneStr = "...Done";
+        private const string DoneStr = "...完了";
         private string _gameLocation;
         private int _pluginPercentDone;
 
@@ -33,19 +33,19 @@ namespace BepInEx.SplashScreen
                     checkedListBox1.SetItemChecked(0, true);
                     AppendToItem(0, DoneStr);
                     AppendToItem(1, WorkingStr);
-                    SetStatusMain("BepInEx patchers are being applied...");
+                    SetStatusMain("BepInEx のパッチを適用しています...");
                     break;
 
                 case LoadEvent.PreloaderFinish:
                     checkedListBox1.SetItemChecked(1, true);
                     AppendToItem(1, DoneStr);
-                    SetStatusMain("Finished applying patchers.");
-                    SetStatusDetail("Plugins should start loading soon.\nIn case loading is stuck, check your entry point.");
+                    SetStatusMain("パッチの適用が完了しました。");
+                    SetStatusDetail("プラグインの読み込みを行います。\n読み込みが停止する場合は、エントリポイントを確認してください。");
                     break;
 
                 case LoadEvent.ChainloaderStart:
                     AppendToItem(2, WorkingStr);
-                    SetStatusMain("BepInEx plugins are being loaded...");
+                    SetStatusMain("BepInEx のプラグインを読み込んでいます...");
                     break;
 
                 case LoadEvent.ChainloaderFinish:
@@ -53,8 +53,8 @@ namespace BepInEx.SplashScreen
                     checkedListBox1.SetItemChecked(2, true);
                     AppendToItem(2, DoneStr);
                     AppendToItem(3, WorkingStr);
-                    SetStatusMain("Finished loading plugins.");
-                    SetStatusDetail("Waiting for the game to start...\nSome plugins might need more time to finish loading.");
+                    SetStatusMain("プラグインの読み込みが完了しました。");
+                    SetStatusDetail("Among Usの起動を待っています...\n読み込んでいるプラグインによっては読み込み完了まで時間がかかる場合があります。");
                     break;
 
                 case LoadEvent.LoadFinished:
@@ -126,6 +126,16 @@ namespace BepInEx.SplashScreen
         private void Button1_Click(object sender, EventArgs e)
         {
             Process.Start(_gameLocation);
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SplashScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,17 +31,25 @@ namespace BepInEx.SplashScreen
 
                 if (args.Length == 0)
                 {
-                    if (MessageBox.Show("This is a splash screen that shows loading progress when a game patched with BepInEx is loading. It is automatically started and then updated by \"BepInEx.SplashScreen.Patcher.dll\" and can't be opened manually.\n\n" +
-                                        "If you can't see a splash screen when the game is starting:\n" +
-                                        "1 - Make sure that \"BepInEx.SplashScreen.GUI.exe\" and \"BepInEx.SplashScreen.Patcher.dll\" are both present inside the \"BepInEx\\patchers\" folder.\n" +
-                                        "2 - Check if the splash screen isn't disabled in \"BepInEx\\config\\BepInEx.SplashScreen.cfg\".\n" +
-                                        "3 - Update BepInEx5 to latest version and make sure that it is running.\n" +
-                                        "4 - If the splash screen still does not appear, check the game log for any errors or exceptions. You can report issues on GitHub.\n\n" +
-                                        "Do you want to open the GitHub repository page of BepInEx.SplashScreen?",
-                                        "BepInEx Loading Progress Splash Screen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    if (MessageBox.Show(
+                        "これはゲームの起動時に読み込み状況を表示するアプリです。"
+                        + "このウィンドウは「BepInEx.SplashScreen.Patcher.dll」によって自動で起動・更新されるもので、手動で開くことはできません。\n\n"
+                        + "もしゲーム起動時にアプリの画面が表示されない場合:\n"
+                        + "1 - 「BepInEx\\\\patchers」フォルダ内に「BepInEx.SplashScreen.GUI.exe」と「BepInEx.SplashScreen.Patcher.dll」が両方存在するか確認してください。\n"
+                        + "2 - 「BepInEx\\\\config\\\\BepInEx.SplashScreen.cfg」でアプリが無効化されていないか確認してください。\n"
+                        + "3 - 最新版の BepInEx（Mod）に更新し、正しく動作しているか確認してください。\n"
+                        + "4 - それでも表示されない場合は、ゲームログにエラーや例外が出ていないか確認してください。\n\n"
+                        + "BepInEx.SplashScreen の GitHub ページを開きますか？",
+                        "BepInEx を読み込んでいます",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning,
+                        MessageBoxDefaultButton.Button2
+                    ) == DialogResult.Yes)
                         Process.Start("https://github.com/BepInEx/BepInEx.SplashScreen");
+
                     return;
                 }
+
 
                 _mainForm = new SplashScreen();
                 _mainForm.Show();
