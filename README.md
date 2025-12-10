@@ -1,14 +1,15 @@
-�G���[���o���ꍇ
+# AmongUs.BepInEx.SplashScreen.Japanese
 
-�A�v���̃G���[
-1 - �uBepInEx\patchers�v�t�H���_���ɁuBepInEx.SplashScreen.GUI.exe�v�ƁuBepInEx.SplashScreen.Patcher.dll�v���������݂��邩�m�F���Ă��������B
+## このアプリは直接起動するアプリではありません。
 
-2 - �uBepInEx\config\BepInEx.SplashScreen.cfg�v�ŃA�v��������������Ă��Ȃ����m�F���Ă��������B
+##　アプリのエラーが出た場合
+<img width="617" height="498" alt="image" src="https://github.com/user-attachments/assets/bba7f436-ccf6-46b1-aa28-7de33a3f5079" />
 
-3 - �ŐV�ł� BepInEx�iMod�j�ɍX�V���A���������삵�Ă��邩�m�F���Ă��������B
+1. 「BepInEx\patchers」フォルダ内に「BepInEx.SplashScreen.GUI.exe」と「BepInEx.SplashScreen.Patcher.dll」が両方存在するか確認してください。
+2. 「BepInEx\config\BepInEx.SplashScreen.cfg」でアプリが無効化されていないか確認してください。
+3. 最新版の BepInEx（Mod）に更新し、正しく動作しているか確認してください。
+4. それでも表示されない場合は、ゲームログにエラーや例外が出ていないか確認してください。
 
-4 - ����ł��\������Ȃ��ꍇ�́A�Q�[�����O�ɃG���[���O���o�Ă��Ȃ����m�F���Ă��������B
-
-BepInEx5�p��Project�̓A�����[�h����ƃr���h�ɐ������܂��B
-
-�r���h��AAmong Us.SplashScreen.GUI.exe��BepInEx.SplashScreen.Patcher.BepInEx6.dll��patchers�t�H���_�ɃR�s�[���Ă��������B
+**AmongUs.BepInEx.SplashScreen.Japanese.zip**を展開し、BepInExフォルダをAmong Us.exeがあるフォルダ内に移動またはコピーしてください。
+※BepInExを導入していないと表示されません。
+Consoleの表示をオンにしている場合は、configから対象の設定を既定値であるtrueからfalseにすることで表示されます。
