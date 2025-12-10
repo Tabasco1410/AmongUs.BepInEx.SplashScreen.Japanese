@@ -2,7 +2,7 @@
 
 ## このアプリは直接起動するアプリではありません。
 
-##　アプリのエラーが出た場合
+## アプリのエラーが出た場合
 
 1. 「BepInEx\patchers」フォルダ内に「BepInEx.SplashScreen.GUI.exe」と「BepInEx.SplashScreen.Patcher.dll」が両方存在するか確認してください。
 2. 「BepInEx\config\BepInEx.SplashScreen.cfg」でアプリが無効化されていないか確認してください。
